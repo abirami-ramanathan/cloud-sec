@@ -1,14 +1,14 @@
 # Dockerfile for the ML model
-FROM python:3.9
+FROM python:3.11
 
-# Install required dependencies
-RUN pip install pandas cryptography scikit-learn==1.2.2
+# Install required dependencies (compatible with Python 3.11)
+RUN pip install numpy==1.26.4 pandas cryptography scikit-learn==1.8.0
 
 # Copy your Python script for ML inference
 COPY deploydocker.py /app/deploy.py
 COPY alert.py /app/alert.py
 COPY RFCMODEL.pkl /app/RFCMODEL.pkl
-COPY scaler.sc /app/scaler.sc
+COPY scalerr.sc /app/scalerr.sc
 
 # Set the working directory
 WORKDIR /app

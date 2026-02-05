@@ -29,12 +29,19 @@ def send_email(subject, body):
         server.login(smtp_username, smtp_password)
         server.sendmail(sender_email, receiver_email, msg.as_string())
 
-def main():
-
-    # Log the alert
-    logging.error("Alert! An Attack has been detected.")
+def log_attack(attack_type):
+    # Log the attack
+    logging.error(f"Alert! Attack detected: {attack_type}")
 
     # Send an email
     subject = "Alert: Attack Detected"
-    body = "The Network Traffic Classifier System has detected an Attack. Please check."
+    body = f"The Network Traffic Classifier System has detected an {attack_type} attack. Please check."
     #send_email(subject, body)
+
+def log_normal():
+    # Log normal traffic
+    logging.info("Normal traffic detected.")
+
+def main():
+    # Legacy function for backward compatibility
+    log_attack("Unknown")

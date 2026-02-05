@@ -87,7 +87,7 @@ def mainalert(num_anomalies, alert_threshold, unique_connections):
     
     if num_anomalies > alert_threshold:
         # CRITICAL ALERT: Anomalies exceed threshold
-        print(f"\n   ⚠️  CRITICAL ALERT: WEB INTRUSION DETECTED ⚠️")
+        print(f"\n   CRITICAL ALERT: WEB INTRUSION DETECTED ")
         print(f"   {'='*50}")
         print(f"   Anomalies detected:      {num_anomalies}")
         print(f"   Alert threshold:         {alert_threshold:.2f}")
