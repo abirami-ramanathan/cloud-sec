@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+  packet-capturer:
+    build:
+      context: ./capture
+    network_mode: "host"
+    volumes:
+      - /app/data1:/app/data1
+    
+  feature-engineering:
+    build:
+      context: ./Featureengine
+    volumes:
+      - /app/data1:/app/data1
+      - /app/data2:/app/data2
+
+  ml-model:
+    build:
+      context: ./MLModel
+    volumes:
+      - /app/data3:/app/data3
+      - /app/data2:/app/data2
