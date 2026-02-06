@@ -1,0 +1,88 @@
+version: '3.8'
+
+services:
+  # Elasticsearch - Search and analytics engine
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:8.11.0
+    container_name: elasticsearch
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ports:
+      - "9200:9200"
+      - "9300:9300"
+    volumes:
+      - elasticsearch_data:/usr/share/elasticsearch/data
+    networks:
+      - elk-network
+    healthcheck:
+      test: curl -s http://localhost:9200 >/dev/null || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 120
+
+  # Kibana - Visualization and exploration platform
+  kibana:
+    image: docker.elastic.co/kibana/kibana:8.11.0
+    container_name: kibana
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    ports:
+      - "5601:5601"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - elk-network
+    healthcheck:
+      test: curl -s http://localhost:5601/api/status >/dev/null || exit 1
+      interval: 10s
+      timeout: 10s
+      retries: 120
+
+  # Logstash - Data processing pipeline
+  logstash:
+    image: docker.elastic.co/logstash/logstash:8.11.0
+    container_name: logstash
+    volumes:
+      - ./logstash.conf:/usr/share/logstash/pipeline/logstash.conf
+      - ./logs:/logs:ro
+    environment:
+      - "LS_JAVA_OPTS=-Xmx256m -Xms256m"
+    ports:
+      - "5000:5000"
+      - "9600:9600"
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - elk-network
+    command: logstash -f /usr/share/logstash/pipeline/logstash.conf
+
+  # Filebeat - Log shipper for lightweight log collection
+  filebeat:
+    image: docker.elastic.co/beats/filebeat:8.11.0
+    container_name: filebeat
+    user: root
+    volumes:
+      - ./filebeat.yml:/usr/share/filebeat/filebeat.yml:ro
+      - ./logs:/logs:ro
+      - /var/lib/docker/containers:/var/lib/docker/containers:ro
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+    environment:
+      - ELASTICSEARCH_HOSTS=http://elasticsearch:9200
+    depends_on:
+      elasticsearch:
+        condition: service_healthy
+    networks:
+      - elk-network
+    command: filebeat -e -strict.perms=false
+
+volumes:
+  elasticsearch_data:
+    driver: local
+
+networks:
+  elk-network:
+    driver: bridge

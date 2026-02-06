@@ -1,0 +1,383 @@
+{
+  "version": "8.11.0",
+  "objects": [
+    {
+      "id": "security-overview-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Security Overview Dashboard",
+        "description": "Real-time security posture and comprehensive threat metrics",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 12,
+              "h": 4
+            },
+            "type": "visualization",
+            "id": "critical-alerts-metric",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 12,
+              "y": 0,
+              "w": 12,
+              "h": 4
+            },
+            "type": "visualization",
+            "id": "total-attacks-metric",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 4,
+              "w": 24,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "attacks-timeline",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 12,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "threat-types-chart",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 12,
+              "y": 12,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "threat-level-distribution",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-24h",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 10000
+        }
+      }
+    },
+    {
+      "id": "threat-detection-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Threat Detection Analysis",
+        "description": "Detailed threat analysis, detection metrics, and incident tracking",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 24,
+              "h": 12
+            },
+            "type": "visualization",
+            "id": "critical-threats-table",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 12,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "detection-accuracy",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 12,
+              "y": 12,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "false-positives",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-7d",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 30000
+        }
+      }
+    },
+    {
+      "id": "honeypot-activity-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Honeypot Activity Monitoring",
+        "description": "SSH, FTP, and HTTP attack patterns, captured credentials, and attacker analysis",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 8,
+              "h": 6
+            },
+            "type": "visualization",
+            "id": "attack-types-pie",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 8,
+              "y": 0,
+              "w": 8,
+              "h": 6
+            },
+            "type": "visualization",
+            "id": "top-attackers",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 16,
+              "y": 0,
+              "w": 8,
+              "h": 6
+            },
+            "type": "visualization",
+            "id": "attack-timeline-honeypot",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 6,
+              "w": 24,
+              "h": 10
+            },
+            "type": "visualization",
+            "id": "captured-credentials",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-24h",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 20000
+        }
+      }
+    },
+    {
+      "id": "malware-analysis-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Malware Analysis & Detection",
+        "description": "File analysis results, detection accuracy, and malware family tracking",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 8,
+              "h": 4
+            },
+            "type": "visualization",
+            "id": "total-analyzed-metric",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 8,
+              "y": 0,
+              "w": 8,
+              "h": 4
+            },
+            "type": "visualization",
+            "id": "detection-rate",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 16,
+              "y": 0,
+              "w": 8,
+              "h": 4
+            },
+            "type": "visualization",
+            "id": "avg-confidence",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 4,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "malware-benign-pie",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 12,
+              "y": 4,
+              "w": 12,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "top-malware-families",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-30d",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 60000
+        }
+      }
+    },
+    {
+      "id": "network-traffic-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Network Traffic Analysis",
+        "description": "Traffic patterns, anomaly detection, and network security metrics",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 24,
+              "h": 10
+            },
+            "type": "visualization",
+            "id": "traffic-volume-timeline",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 10,
+              "w": 8,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "top-protocols",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 8,
+              "y": 10,
+              "w": 8,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "top-ports",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 16,
+              "y": 10,
+              "w": 8,
+              "h": 8
+            },
+            "type": "visualization",
+            "id": "anomalous-flows",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-24h",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 30000
+        }
+      }
+    },
+    {
+      "id": "incident-response-dashboard",
+      "type": "dashboard",
+      "attributes": {
+        "title": "Incident Response & Investigation",
+        "description": "Incident timeline, correlation analysis, and response tracking",
+        "panels": [
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 0,
+              "w": 24,
+              "h": 20
+            },
+            "type": "visualization",
+            "id": "incident-timeline",
+            "embeddableConfig": {}
+          },
+          {
+            "version": "8.11.0",
+            "gridData": {
+              "x": 0,
+              "y": 20,
+              "w": 24,
+              "h": 10
+            },
+            "type": "visualization",
+            "id": "related-events",
+            "embeddableConfig": {}
+          }
+        ],
+        "timeRestore": true,
+        "timeFrom": "now-7d",
+        "timeTo": "now",
+        "refreshInterval": {
+          "pause": false,
+          "value": 60000
+        }
+      }
+    }
+  ]
+}

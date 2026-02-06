@@ -1,0 +1,90 @@
+filebeat.inputs:
+# Honeypot log input
+- type: log
+  enabled: true
+  paths:
+    - /logs/honeypot/*.log
+  fields:
+    module: honeypot
+    source_type: honeypot
+  multiline.pattern: '^\['
+  multiline.negate: true
+  multiline.match: after
+  tags:
+    - honeypot
+    - attack-detection
+
+# Malware Analysis log input
+- type: log
+  enabled: true
+  paths:
+    - /logs/malware-analysis/*.log
+  fields:
+    module: malware-analysis
+    source_type: malware
+  tags:
+    - malware-analysis
+    - threat-detection
+
+# Network Traffic Classifier input
+- type: log
+  enabled: true
+  paths:
+    - /logs/network-traffic/*.log
+  fields:
+    module: network-traffic-classifier
+    source_type: network
+  tags:
+    - network-traffic
+    - traffic-analysis
+
+# Web Intrusion Detection System input
+- type: log
+  enabled: true
+  paths:
+    - /logs/web-ids/*.log
+  fields:
+    module: web-ids
+    source_type: web-intrusion
+  tags:
+    - web-ids
+    - intrusion-detection
+
+# Elasticsearch Output
+output.elasticsearch:
+  hosts: ["elasticsearch:9200"]
+  index: "security-events-%{+yyyy.MM.dd}"
+  bulk_max_size: 2000
+  worker: 4
+  compression_level: 9
+
+# Kibana Dashboards
+setup.kibana:
+  host: "kibana:5601"
+  enabled: true
+
+# Index lifecycle management for automatic index rotation
+setup.ilm.enabled: true
+setup.ilm.rollover_alias: "security-events"
+setup.ilm.pattern: "{now/d}-000001"
+setup.ilm.policy_name: "security-events-policy"
+
+# Logging
+logging.level: info
+logging.selectors: ["*"]
+logging.files:
+  path: /var/log/filebeat
+  name: filebeat
+  keepfiles: 7
+  permissions: 0644
+
+# Beat metadata
+name: "security-logstash"
+tags: ["cloud-sec", "siem"]
+
+processors:
+  - add_kubernetes_metadata: ~
+  - add_docker_metadata: ~
+  - add_host_metadata: ~
+  - add_utm_fields: ~
+  - add_http_request_summary: ~
