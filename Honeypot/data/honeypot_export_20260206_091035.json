@@ -1,0 +1,143 @@
+{
+  "exported_at": "2026-02-06T09:10:35.041914",
+  "total_attacks": 9,
+  "ssh_attacks": [],
+  "ftp_attacks": [
+    {
+      "timestamp": "2026-02-06T09:05:30.792836",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER pi",
+          "PASS ssh"
+        ],
+        "username": "pi",
+        "password": "ssh",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:31.795661",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER root",
+          "PASS 123456"
+        ],
+        "username": "root",
+        "password": "123456",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:32.800382",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER test",
+          "PASS letmein"
+        ],
+        "username": "test",
+        "password": "letmein",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:33.772988",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER admin",
+          "PASS root"
+        ],
+        "username": "admin",
+        "password": "root",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:33.804056",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER ubuntu",
+          "PASS root"
+        ],
+        "username": "ubuntu",
+        "password": "root",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:34.777872",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER test",
+          "PASS ssh"
+        ],
+        "username": "test",
+        "password": "ssh",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:34.818959",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER pi",
+          "PASS test"
+        ],
+        "username": "pi",
+        "password": "test",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:35.784516",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER postgres",
+          "PASS ssh"
+        ],
+        "username": "postgres",
+        "password": "ssh",
+        "command_count": 2
+      }
+    },
+    {
+      "timestamp": "2026-02-06T09:05:36.806855",
+      "type": "ftp",
+      "ip_address": "127.0.0.1",
+      "details": {
+        "port": 2121,
+        "commands": [
+          "USER admin",
+          "PASS test"
+        ],
+        "username": "admin",
+        "password": "test",
+        "command_count": 2
+      }
+    }
+  ],
+  "http_attacks": []
+}
