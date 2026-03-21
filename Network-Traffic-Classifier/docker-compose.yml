@@ -1,0 +1,23 @@
+services:
+  packet-capturer:
+    build:
+      context: ./capture
+    network_mode: "host"
+    volumes:
+      - ./data1:/app/data1
+
+  feature-engineering:
+    build:
+      context: ./Featureengine
+    volumes:
+      - ./data1:/app/data1
+      - ./data2:/app/data2
+
+  ml-model:
+    build:
+      context: ..
+      dockerfile: Network-Traffic-Classifier/MLModel/Dockerfile
+    volumes:
+      - ./data3:/app/data3
+      - ./data2:/app/data2
+      - ../logs/threat_logs.json:/app/threat_logs.json

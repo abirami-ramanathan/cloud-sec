@@ -1,0 +1,49 @@
+body {
+  background-color: #0f1115;
+}
+
+.metric-tile {
+  border: 1px solid #2a2f3a;
+  border-radius: 0.75rem;
+  padding: 1rem;
+  background: linear-gradient(135deg, rgba(33, 37, 41, 0.9), rgba(24, 27, 33, 0.9));
+}
+
+.metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  color: #9aa4b2;
+  letter-spacing: 0.08em;
+}
+
+.metric-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f8f9fa;
+}
+
+.card {
+  border-radius: 1rem;
+}
+
+.btn-primary {
+  background-color: #0d6efd;
+  border-color: #0d6efd;
+}
+
+.form-select {
+  background-color: #151922;
+  color: #f8f9fa;
+  border-color: #2a2f3a;
+}
+
+.alert {
+  border-radius: 0.75rem;
+}
+
+.table-dark {
+  --bs-table-bg: #151922;
+  --bs-table-striped-bg: #12161f;
+  --bs-table-hover-bg: #1d2230;
+  border-color: #2a2f3a;
+}
